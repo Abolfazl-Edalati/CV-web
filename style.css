@@ -1,0 +1,301 @@
+/* تعریف متغیرهای رنگی در root */
+:root {
+  --primary-bg-color: #f7f3ed; /* رنگ پس‌زمینه اصلی، کمی روشن‌تر و گرم‌تر */
+  --secondary-bg-color: #ffeadb; /* رنگ ثانویه برای گرادیان، نارنجی-هلویی */
+  --accent-color-light: #e0b090; /* رنگ تاکیدی روشن‌تر، قهوه‌ای روشن */
+  --accent-color-dark: #b07040; /* رنگ تاکیدی تیره‌تر، قهوه‌ای تیره */
+  --text-color-dark: #333333; /* رنگ متن اصلی تیره */
+  --text-color-medium: #555555; /* رنگ متن متوسط */
+  --text-color-light: #777777; /* رنگ متن روشن‌تر */
+  --box-shadow-color: rgba(0, 0, 0, 0.1);
+  --border-color-light: #eeeeee;
+  --skill-bar-fill-color: var(--accent-color-dark); /* رنگ پر شدن نوار مهارت */
+  --skill-bar-bg-color: #f0f0f0; /* رنگ پس‌زمینه نوار مهارت */
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* تنظیمات عمومی */
+body {
+  margin: 0;
+  font-family: "Montserrat", "Vazirmatn", sans-serif; /* فونت‌های ترکیبی */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    var(--primary-bg-color),
+    var(--secondary-bg-color)
+  ); /* گرادیان با رنگ‌های جدید */
+  direction: ltr; /* برای محتوای انگلیسی */
+}
+
+.resume-container {
+  width: 850px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px var(--box-shadow-color);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* بخش هدر (نام و عکس) */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.name-job h1 {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 0.9;
+  margin: 0;
+  color: var(--text-color-dark);
+}
+
+.job-position-box {
+  background-color: var(--border-color-light);
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin-top: 15px;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: var(--text-color-medium);
+}
+
+.profile-pic-container {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #fff;
+  box-shadow: 0 5px 15px var(--box-shadow-color);
+  position: relative;
+  background: linear-gradient(
+    45deg,
+    var(--accent-color-light),
+    var(--accent-color-dark)
+  ); /* گرادیان پشت عکس */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  clip-path: ellipse(50% 50% at 50% 50%); /* برای شکل بیضی */
+}
+
+.profile-pic {
+  width: 90%; /* برای کوچک‌تر کردن عکس داخل قاب */
+  height: 90%;
+  object-fit: cover;
+  border-radius: 50%; /* مطمئن شوید عکس هم دایره‌ای باشد */
+}
+
+/* محتوای اصلی (دو ستون) */
+.main-content {
+  display: flex;
+  gap: 30px;
+}
+
+.left-column,
+.right-column {
+  flex: 1;
+  display: grid;
+  grid-template-rows: 260px 430px 120px;
+}
+
+.section {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color-light);
+}
+
+.section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-color-dark);
+  margin-top: 0;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 40px;
+  height: 3px;
+  background-color: var(--accent-color-dark); /* خط زیر عنوان */
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-color-medium);
+}
+
+/* تجربه کاری */
+.job-entry h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-color-medium);
+  margin-bottom: 5px;
+}
+.job-entry p {
+  font-size: 14px;
+  color: var(--text-color-light);
+  margin-top: 0;
+}
+.contact-social-media {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.contact-icon {
+  width: 50px;
+  height: 50px;
+}
+
+/* تحصیلات */
+.education-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.education-details {
+  display: flex;
+  gap: 24px;
+}
+.education-entry .dates {
+  font-weight: bold;
+  color: var(--text-color-medium);
+  flex-shrink: 0;
+  min-width: 90px;
+}
+.education-entry h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-color-medium);
+  margin-bottom: 5px;
+}
+.education-entry p {
+  font-size: 14px;
+  color: var(--text-color-light);
+  margin-top: 0;
+}
+
+/* مهارت‌ها و زبان‌ها */
+.skills-section .skill-entry,
+.skills-section .language-entry {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.skills-section .skill-entry span,
+.skills-section .language-entry span {
+  width: 120px;
+  font-weight: 600;
+  color: var(--text-color-medium);
+  flex-shrink: 0;
+}
+
+.skill-bar-container {
+  flex-grow: 1;
+  height: 8px;
+  background-color: var(--skill-bar-bg-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-bar {
+  height: 100%;
+  background-color: var(--skill-bar-fill-color);
+  border-radius: 4px;
+  width: 0;
+  transition: width 0.5s ease-out;
+}
+
+.languages-heading {
+  margin-top: 30px;
+}
+
+/* بخش وب‌سایت */
+.website-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: none;
+}
+.website-section a {
+  color: var(--text-color-light);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+}
+.website-section a:hover {
+  color: var(--text-color-medium);
+}
+
+.website-icon {
+  width: 20px;
+  height: 20px;
+  background-color: var(--accent-color-dark); /* رنگ آیکون */
+  border-radius: 50%;
+}
+
+/* برای فلش کناری (شبیه به تصویر) */
+.resume-container::before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 250px;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 20px solid var(--border-color-light); /* رنگ فلش */
+  z-index: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .resume-container {
+    width: 90%;
+    padding: 20px;
+  }
+  .main-content {
+    flex-direction: column;
+  }
+  .header-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  .profile-pic-container {
+    margin-top: 20px;
+  }
+  .left-column,
+  .right-column {
+    width: 100%;
+  }
+  h1 {
+    font-size: 50px;
+  }
+}
